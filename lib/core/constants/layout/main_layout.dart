@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 class MainLayout extends StatelessWidget {
   final Widget child;
-  const MainLayout({super.key, required this.child});
+  final String? screen;
+  const MainLayout({super.key, required this.child, this.screen});
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +23,24 @@ class MainLayout extends StatelessWidget {
                   bottomRight: Radius.circular(18),
                 ),
               ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                child: Row(
+                  children: <Widget>[
+                    Text(
+                      screen!,
+                      style: TextStyle(
+                        fontSize: 26.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
+
             const SizedBox(height: 10),
+
             Expanded(child: child),
           ],
         ),
